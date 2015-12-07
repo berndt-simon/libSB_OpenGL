@@ -96,7 +96,7 @@ public final class ShaderProgram implements GLBlock<GL2ES2>, GLClosable<GL2ES2> 
 	Arrays.stream(shaderIds).forEach((int shader) -> gl.glAttachShader(programId, shader));
         gl.glLinkProgram(programId);
         gl.glValidateProgram(programId);
-//	Arrays.stream(shaderIds).forEach((int shader) -> gl.glDetachShader(programId, shader));
+	Arrays.stream(shaderIds).forEach((int shader) -> gl.glDetachShader(programId, shader));
         Optional<ShaderError> error = ShaderUtil.retrieveError(gl, programId);
         if (error.isPresent()) {
             gl.glDeleteProgram(programId);
